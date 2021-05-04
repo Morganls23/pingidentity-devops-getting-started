@@ -34,7 +34,7 @@ version: "2.4"
 services:
   pingaccess:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingaccess:${PING_IDENTITY_DEVOPS_TAG}
-    command: wait-for pingfederate:443 -t 420 -- entrypoint.sh start-server
+    command: wait-for pingfederate:9031 -t 420 -- entrypoint.sh start-server
     environment:
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_PATH=baseline/pingaccess
@@ -43,7 +43,7 @@ services:
       # devops user/key details for evaluation licenses and for docker image/git tags
       - ${HOME}/.pingidentity/devops
     ports:
-      - "443:443"
+      - "9031:443"
       - "9000:9000"
       - "3000:3000"
     networks:
