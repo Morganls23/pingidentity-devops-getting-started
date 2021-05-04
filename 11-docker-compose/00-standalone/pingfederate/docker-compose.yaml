@@ -26,7 +26,7 @@ services:
     env_file:
       - ${HOME}/.pingidentity/devops
     ports:
-      - "1443:443"
+      - "443:443"
       - "9999:9999"
     networks:
       - pingnet
